@@ -1,0 +1,186 @@
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body><form action="/editexpertpost" method="post" enctype="multipart/form-data">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>name</td>#}
+{#      <td><label>#}
+{#        <input type="text" name="textfield" value="{{ data.name }}" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>place</td>#}
+{#      <td><label>#}
+{#        <input type="text" name="textfield2" value="{{ data.place }}" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#       <tr>#}
+{#      <td>contact</td>#}
+{#      <td><label>#}
+{#        <input type="text" name="textfield9" value="{{data.contact }}" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>pin</td>#}
+{#      <td><label>#}
+{#        <input type="text" name="textfield3" value="{{ data.pin }}"/>#}
+{#      </label>#}
+{#      <label></label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>post</td>#}
+{#      <td><label>#}
+{#        <input type="text" name="textfield4" value="{{ data.post }}" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#      <tr>#}
+{#      <td>email</td>#}
+{#      <td><label>#}
+{#        <input type="text" name="textfield10" value="{{ data.email }}"/>#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>gender</td>#}
+{#      <td><label>#}
+{##}
+{#          <select name="select" >#}
+{#              <option>male</option>#}
+{#              <option>female</option>#}
+{#          </select>#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td>photo</td>#}
+{#      <td><label>#}
+{#        <input type="file" name="textfield6" value="{{ data.image.url }}"/>#}
+{#      </label></td>#}
+{#    </tr>#}
+{##}
+{#      <td><a href="#"></a></td>#}
+{#      <td><a href="#">#}
+{##}
+{##}
+{#        <label></label>#}
+{#        <input type="submit" name="Submit" value="add" />#}
+{#        <label></label>#}
+{##}
+{##}
+{##}
+{#      </a>#}
+{##}
+{#      <p>#}
+{#        <label></label>#}
+{#      </p></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{##}
+{##}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Edit Expert</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 20px;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    fieldset {
+      border: none;
+      margin-bottom: 15px;
+    }
+    legend {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    select,
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="text"]:focus,
+    select:focus,
+    input[type="file"]:focus {
+      border-color: #007BFF;
+      outline: none;
+    }
+    input[type="submit"] {
+      background-color: #28a745;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/editexpertpost" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <legend>Edit Expert Details</legend>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="textfield" value="{{ data.name }}" required pattern="[A-Z a-z.]{3,25}"/>
+
+      <label for="place">Place</label>
+      <input type="text" id="place" name="textfield2" value="{{ data.place }}" pattern="[A-Z a-z.]{3,25}"/>
+
+      <label for="contact">Contact</label>
+      <input type="text" id="contact" name="textfield9" value="{{ data.contact }}" required pattern="[6789][0-9]{9}" />
+
+      <label for="pin">PIN</label>
+      <input type="text" id="pin" name="textfield3" value="{{ data.pin }}"  required pattern="[0-9]{6}"/>
+
+      <label for="post">Post</label>
+      <input type="text" id="post" name="textfield4" value="{{ data.post }}" pattern="[A-Z a-z.]{3,25}"/>
+
+      <label for="email">Email</label>
+      <input type="text" id="email" name="textfield10" value="{{ data.email }}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}"/>
+
+      <label for="gender">Gender</label>
+      <select id="gender" name="select">
+        <option value="male" {% if data.gender == 'male' %}selected{% endif %}>Male</option>
+        <option value="female" {% if data.gender == 'female' %}selected{% endif %}>Female</option>
+      </select>
+
+      <label for="photo">Photo</label>
+      <input type="file" id="photo" name="photo" required/>
+
+      <input type="submit" name="Submit" value="Update" />
+    </fieldset>
+  </form>
+</body>
+</html>

@@ -1,0 +1,105 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{#<body>#}
+{#<table width="200" border="1">#}
+{#  <tr>#}
+{#    <td>name</td>#}
+{#    <td>weight</td>#}
+{#    <td>age</td>#}
+{#  </tr>#}
+{#    {% for i in data %}#}
+{#  <tr>#}
+{#    <td>{{ i.name }}</td>#}
+{#    <td>&nbsp;{{ i.weight }}</td>#}
+{#    <td>&nbsp;{{ i.age }}</td>#}
+{##}
+{##}
+{#    <td><a href="/view_vacc_details_child/{{ i.id }}">vaccination</a><br>#}
+{#    <a href="/deleteechild/{{ i.id }}">delete</a></td>#}
+{#  </tr>#}
+{#    {% endfor %}#}
+{#    <td><a href="/addchild">add</a></td>#}
+{#</table>#}
+{##}
+{##}
+{#</body>#}
+{#</html>#}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Styled Table</title>
+<style>
+  /* Apply a border to the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  /* Style the table header */
+  th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+  }
+
+  /* Style the table data cells */
+  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  /* Add zebra striping to table rows */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  /* Highlight table rows on hover */
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  /* Style the action links */
+  a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Weight</th>
+    <th>Age</th>
+    <th>Actions</th>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{ i.name }}</td>
+    <td>{{ i.weight }}</td>
+    <td>{{ i.age }}</td>
+    <td>
+      <a href="/view_vacc_details_child/{{ i.id }}">Vaccination</a><br>
+      <a href="/deleteechild/{{ i.id }}">Delete</a>
+    </td>
+  </tr>
+  {% endfor %}
+  <tr>
+    <td colspan="4"><a href="/addchild">Add</a></td>
+  </tr>
+</table>
+</body>
+</html>

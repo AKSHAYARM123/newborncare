@@ -1,0 +1,132 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<form action="/add_vacc_detail_child_post" method="post">#}
+{#<table width="200" border="1">#}
+{#  <tr>#}
+{#    <td>child_id:</td>#}
+{#    <td>#}
+{#      <label>#}
+{#        <input type="text" name="textfield" />#}
+{#        </label>#}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>vaccine:</td>#}
+{#    <td>#}
+{#       <select name="select">#}
+{#           {% for i in data %}#}
+{#                <option value="{{ i.id }}">{{ i.name }}</option>#}
+{#           {% endfor %}#}
+{#       </select>#}
+{##}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>date:</td>#}
+{#    <td>#}
+{#      <label>#}
+{#        <input type="date" name="textfield3" />#}
+{#        </label>#}
+{##}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>&nbsp;</td>#}
+{#    <td>#}
+{##}
+{#      <label>#}
+{#        <input type="submit" name="Submit" value="add" />#}
+{#        </label>#}
+{##}
+{#    </td>#}
+{#  </tr>#}
+{#</table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Vaccination Form</title>
+<style type="text/css">
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 20px;
+        text-align: center;
+    }
+    form {
+        background: #fff;
+        padding: 20px;
+        max-width: 400px;
+        margin: auto;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 10px;
+        text-align: left;
+    }
+    input[type="text"], select, input[type="date"], input[type="submit"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    input[type="submit"] {
+        background-color: #28a745;
+        color: #fff;
+        cursor: pointer;
+        border: none;
+        font-weight: bold;
+    }
+    input[type="submit"]:hover {
+        background-color: #218838;
+    }
+</style>
+</head>
+
+<body>
+
+<form action="/add_vacc_detail_child_post" method="post">
+<table>
+  <tr>
+    <td>Child ID:</td>
+    <td><input type="text" name="textfield" required/></td>
+  </tr>
+  <tr>
+    <td>Vaccine:</td>
+    <td>
+       <select name="select">
+           {% for i in data %}
+                <option value="{{ i.id }}">{{ i.name }}</option>
+           {% endfor %}
+       </select>
+    </td>
+  </tr>
+  <tr>
+    <td>Date:</td>
+    <td><input type="date" name="textfield3" required/></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="submit" name="Submit" value="Add" /></td>
+  </tr>
+</table>
+</form>
+
+</body>
+</html>
+

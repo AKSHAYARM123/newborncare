@@ -1,0 +1,115 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body><form action="" method="get">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>category</td>#}
+{#      <td>name</td>#}
+{#      <td>quantity</td>#}
+{#      <td>&nbsp;</td>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ i.category }}</td>#}
+{#      <td>{{ i.foodname }}</td>#}
+{#      <td>{{ i.quantity }}&nbsp;</td>#}
+{#      <td><a href="/edit_food/{{ i.id }}">edit</a><br>#}
+{#      <a href="/delete_food/{{ i.id }}">delete</a></td>#}
+{#    </tr>#}
+{##}
+{#      {% endfor %}#}
+{#    <tr>#}
+{#      <td colspan="4"><a href="/add_food">add</a></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{##}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Food Inventory</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  tr:hover {
+    background-color: #ddd;
+  }
+  a {
+    color: #4CAF50;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .add-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .add-link:hover {
+    background-color: #45a049;
+  }
+</style>
+</head>
+
+<body>
+<form action="" method="get">
+  <table>
+    <tr>
+      <th>Category</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Actions</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ i.category }}</td>
+      <td>{{ i.foodname }}</td>
+      <td>{{ i.quantity }}</td>
+      <td>
+        <a href="/edit_food/{{ i.id }}">Edit</a>
+        <a href="/delete_food/{{ i.id }}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="4" style="text-align: center;">
+        <a href="/add_food" class="add-link">Add New Food Item</a>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

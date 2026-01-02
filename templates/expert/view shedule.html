@@ -1,0 +1,147 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>date</td>#}
+{#      <td>from_time</td>#}
+{#        <td>to_time</td>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ i.date }}</td>#}
+{#      <td>&nbsp;{{ i.from_time }}</td>#}
+{#      <td>{{ i.to_time }}</td>#}
+{##}
+{#        <td><p><a href="/edit_shedule/{{ i.id }}">edit</a></p>#}
+{#        <p><a href="/deletee_shedule/{{ i.id }}">delete</a></p>#}
+{#           <p> <a href="/view_booking">booking</a></p>#}
+{#        </td>#}
+{##}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#      <tr>#}
+{#          <td colspan="7"><a href="/add_shedule">add</a></td>#}
+{#      </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Schedule Management</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    form {
+        width: 80%;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    td, th {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .actions {
+        text-align: center;
+    }
+
+    .actions a {
+        margin-right: 10px;
+    }
+
+    .add-link {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+
+    .add-link:hover {
+        background-color: #218838;
+    }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+    <h1>Schedule Management</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>From Time</th>
+                <th>To Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ i.date }}</td>
+                <td>{{ i.from_time }}</td>
+                <td>{{ i.to_time }}</td>
+                <td class="actions">
+                    <a href="/edit_shedule/{{ i.id }}">Edit</a>
+                    <a href="/deletee_shedule/{{ i.id }}">Delete</a>
+                    <a href="/view_booking">Booking</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/add_shedule" class="add-link">Add Schedule</a>
+</form>
+</body>
+</html>

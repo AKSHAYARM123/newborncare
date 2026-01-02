@@ -1,0 +1,127 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>date</td>#}
+{#      <td>description</td>#}
+{#      <td>name</td>#}
+{#      <td>place</td>#}
+{#        <td> </td>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>{{ i.date }}</td>#}
+{#      <td>{{ i.desc }}</td>#}
+{#      <td>&nbsp;{{ i.name }}</td>#}
+{#      <td>&nbsp;{{ i.place }}</td>#}
+{#      <td><a href="/edit_vaccination/{{ i.id }}">edit</a>#}
+{#           <a href="/delete_vacc_details/{{ i.id }}">delete</a></td>#}
+{##}
+{##}
+{##}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#    <tr>#}
+{#      <td colspan="4"><label>#}
+{#        <a href="/add_vacc_details">add</a>#}
+{##}
+{#      </label></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Styled Document</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  a {
+    text-decoration: none;
+    color: #3498db;
+    margin-right: 10px;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .add-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .add-link:hover {
+    background-color: #2980b9;
+  }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table>
+    <tr>
+      <th>date</th>
+      <th>description</th>
+      <th>name</th>
+      <th>place</th>
+      <th>actions</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ i.date }}</td>
+      <td>{{ i.desc }}</td>
+      <td>{{ i.name }}</td>
+      <td>{{ i.place }}</td>
+      <td>
+        <a href="/edit_vaccination/{{ i.id }}">edit</a>
+        <a href="/delete_vacc_details/{{ i.id }}">delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="5">
+        <a href="/add_vacc_details" class="add-link">Add New Entry</a>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

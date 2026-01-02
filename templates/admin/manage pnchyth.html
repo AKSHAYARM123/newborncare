@@ -1,0 +1,127 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>place</td>#}
+{#      <td>post</td>#}
+{#      <td>pin</td>#}
+{#      <td>email</td>#}
+{#      <td>phone</td>#}
+{#      <td>&nbsp;</td>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>&nbsp;{{ i.place }}</td>#}
+{#      <td>&nbsp;{{ i.post }}</td>#}
+{#      <td>&nbsp;{{ i.pin }}</td>#}
+{#      <td>&nbsp;{{ i.email }}</td>#}
+{#      <td>&nbsp;{{ i.contact }}</td>#}
+{#      <td><p><a href="/editpanchayth/{{ i.id }}">edit</a></p>#}
+{#      <p><a href="/deletepanchayath/{{ i.id }}">Delete</a></p></td>#}
+{#    </tr>#}
+{#    #}
+{#	{% endfor %}#}
+{#    <tr>#}
+{#     #}
+{#      <td><a href="addpanchayath">Addnew</a></td>#}
+{#      #}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Panchayath Details</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+    padding: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  a[href^="/editpanchayth"] {
+    background-color: #ffc107;
+    color: black;
+  }
+  a[href^="/deletepanchayath"] {
+    background-color: #dc3545;
+    color: white;
+  }
+  a[href="addpanchayath"] {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table>
+    <tr>
+      <th>Place</th>
+      <th>Post</th>
+      <th>Pin</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Actions</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ i.place }}</td>
+      <td>{{ i.post }}</td>
+      <td>{{ i.pin }}</td>
+      <td>{{ i.email }}</td>
+      <td>{{ i.contact }}</td>
+      <td>
+        <a href="/editpanchayth/{{ i.id }}">Edit</a>
+        <a href="/deletepanchayath/{{ i.id }}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="6"><a href="addpanchayath">Add New</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,145 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body><form action="" method="post">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>name</td>#}
+{#      <td>place</td>#}
+{#      <td>pin</td>#}
+{#      <td>post</td>#}
+{#      <td>gender</td>#}
+{#      <td>photo</td>#}
+{##}
+{#      <td>phone</td>#}
+{#              <td>email</td>#}
+{#      <td>&nbsp;</td>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>&nbsp;{{ i.name }}</td>#}
+{#      <td>{{ i.place}}</td>#}
+{#      <td>&nbsp;{{ i.pin }}</td>#}
+{#      <td>{{ i.post}}&nbsp;</td>#}
+{#        <td>&nbsp;{{ i.gender }}</td>#}
+{##}
+{#         <td><img src="{{ i.image.url }}" width="100px" height="100px"></td>#}
+{#         <td>&nbsp;{{ i.contact}}</td>#}
+{#      <td>&nbsp;{{ i.email }}</td>#}
+{#      <td><a href="/editexpert/{{ i.id }}"/>edit</a><br><a href="/deleteexpert/{{ i.id }}">delete</a></td>#}
+{#    </tr>#}
+{#{% endfor %}#}
+{#    <tr>#}
+{#      <td colspan="7"><a href="/manageexpert">add expert</a></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Expert Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background-color: #fff;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+    a {
+      color: #007BFF;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .add-expert {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .add-expert a {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .add-expert a:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="" method="post">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Place</th>
+          <th>PIN</th>
+          <th>Post</th>
+          <th>Gender</th>
+          <th>Photo</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in data %}
+        <tr>
+          <td>{{ i.name }}</td>
+          <td>{{ i.place }}</td>
+          <td>{{ i.pin }}</td>
+          <td>{{ i.post }}</td>
+          <td>{{ i.gender }}</td>
+          <td><img src="{{ i.image.url }}" alt="Photo of {{ i.name }}"></td>
+          <td>{{ i.contact }}</td>
+          <td>{{ i.email }}</td>
+          <td>
+            <a href="/editexpert/{{ i.id }}">Edit</a> |
+            <a href="/deleteexpert/{{ i.id }}">Delete</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
+  <div class="add-expert">
+    <a href="/manageexpert">Add Expert</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/edit_food_allocation_post">#}
+{#  <table width="200" border="1">#}
+{#      <tr>#}
+{#      <td>Month:</td>#}
+{#      <td><label>#}
+{#        <select name="month">#}
+{#            <option value="january">january</option>#}
+{#            <option value="february">february</option>#}
+{#            <option value="march">march</option>#}
+{#            <option value="april">april</option>#}
+{#            <option value="may">may</option>#}
+{#            <option value="june">june</option>#}
+{#             <option value="july">july</option>#}
+{#             <option value="augest">augest</option>#}
+{#             <option value="september">september</option>#}
+{#             <option value="october">october</option>#}
+{#             <option value="november">november</option>#}
+{#             <option value="december">december</option>#}
+{##}
+{#    <tr>#}
+{#      <td>food:</td>#}
+{#      <td><label>#}
+{#        <select name="select">#}
+{#            {% for i in data %}#}
+{#            <option value="{{ i.id }}">{{ i.foodname }}</option>#}
+{#            {% endfor %}#}
+{#        </select>#}
+{#      </label></td>#}
+{#    </tr>#}
+{##}
+{#    <tr>#}
+{#      <td colspan="2"><label>#}
+{#        <input type="submit" name="Submit" value="Update" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Food Allocation</title>
+  <style>
+    /* Reset default margins and padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Style the body */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    /* Style the form */
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* Style the table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    /* Style table headers */
+    th {
+      text-align: left;
+      padding: 8px;
+      background-color: #f2f2f2;
+    }
+
+    /* Style table data cells */
+    td {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Style select dropdown */
+    select {
+      width: 100%;
+      padding: 8px;
+      margin: 4px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    /* Style the submit button */
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Hover effect for the submit button */
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form1" name="form1" method="post" action="/edit_food_allocation_post">
+    <table>
+      <tr>
+        <th>Month:</th>
+        <td>
+          <select name="month">
+            <option value="january">January</option>
+            <option value="february">February</option>
+            <option value="march">March</option>
+            <option value="april">April</option>
+            <option value="may">May</option>
+            <option value="june">June</option>
+            <option value="july">July</option>
+            <option value="august">August</option>
+            <option value="september">September</option>
+            <option value="october">October</option>
+            <option value="november">November</option>
+            <option value="december">December</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th>Food:</th>
+        <td>
+          <select name="select">
+            {% for i in data %}
+              <option value="{{ i.id }}">{{ i.foodname }}</option>
+            {% endfor %}
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" name="Submit" value="Update" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>
+

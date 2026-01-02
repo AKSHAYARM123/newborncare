@@ -1,0 +1,134 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<table width="200" border="1">#}
+{#  <tr>#}
+{#    <td>name</td>#}
+{#    <td>image</td>#}
+{#    <td>pin</td>#}
+{#    <td>post</td>#}
+{#    <td>place</td>#}
+{#    <td>contact</td>#}
+{#    <td>email</td>#}
+{#    <td>&nbsp;</td>#}
+{#  </tr>#}
+{#    {% for i in data %}#}
+{#  <tr>#}
+{#    <td>{{ i.LOGIN.username }}</td>#}
+{#          <td>&nbsp;{{ i.image }}</td>#}
+{##}
+{#    <td>{{ i.pin}}</td>#}
+{#        <td>{{ i.post}}</td>#}
+{#      <td>{{ i.place}}</td>#}
+{#    <td>&nbsp;{{ i.contact}}</td>#}
+{#    <td>&nbsp;{{ i.email}}</td>#}
+{#    <td>#}
+{#        {% if i.LOGIN.type == 'pending'  %}#}
+{#        <p><a href="/accept_mother/{{ i.LOGIN.id }}">accept</a></p>#}
+{#    <p><a href="/reject_mother/{{ i.LOGIN.id }}">reject</a></p>#}
+{##}
+{##}
+{#        {% else %}#}
+{#           {{ i.LOGIN.type }}#}
+{#            <p><a href="/view_child/{{ i.id }}">child details</a></p>#}
+{#            <p><a href="/view_allocated_food/{{ i.id }}">food</a></p>#}
+{#        {% endif %}#}
+{#    </td>#}
+{#  </tr>#}
+{#    {% endfor %}#}
+{#</table>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Styled Table</title>
+<style>
+  /* Apply a border to the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  /* Style the table header */
+  th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+  }
+
+  /* Style the table data cells */
+  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  /* Add zebra striping to table rows */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  /* Highlight table rows on hover */
+  tr:hover {
+    background-color: #ddd;
+  }
+
+  /* Style the action links */
+  a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+
+<body>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Pin</th>
+    <th>Post</th>
+    <th>Place</th>
+    <th>Contact</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+  {% for i in data %}
+  <tr>
+    <td>{{ i.LOGIN.username }}</td>
+    <td>{{ i.image }}</td>
+    <td>{{ i.pin }}</td>
+    <td>{{ i.post }}</td>
+    <td>{{ i.place }}</td>
+    <td>{{ i.contact }}</td>
+    <td>{{ i.email }}</td>
+    <td>
+      {% if i.LOGIN.type == 'pending' %}
+      <p><a href="/accept_mother/{{ i.LOGIN.id }}">Accept</a></p>
+      <p><a href="/reject_mother/{{ i.LOGIN.id }}">Reject</a></p>
+      {% else %}
+      <p><a href="/view_child/{{ i.id }}">Child Details</a></p>
+      <p><a href="/view_allocated_food/{{ i.id }}">Food</a></p>
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+</body>
+</html>
+

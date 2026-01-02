@@ -1,0 +1,147 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/edit_vaccination_post">#}
+{#<table width="200" border="1">#}
+{#  <tr>#}
+{#    <td>name:</td>#}
+{#    <td>#}
+{#      <label>#}
+{#        <input type="text" name="textfield" value="{{ data.name }}"/>#}
+{#        </label>#}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>place:</td>#}
+{#    <td>#}
+{##}
+{#      <label>#}
+{#        <input type="text" name="textfield2" value="{{ data.place }}" />#}
+{#        </label>#}
+{##}
+{##}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>date:</td>#}
+{#    <td>#}
+{##}
+{#      <label>#}
+{#        <input type="date" name="textfield3" value="{{ data.date|date:'Y-m-d' }}"/>#}
+{#        </label>#}
+{##}
+{##}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>des:</td>#}
+{#    <td>#}
+{#      <label>#}
+{#        <input type="text" name="textfield4" value="{{ data.desc }}" />#}
+{#        </label>#}
+{##}
+{#    </td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <td>#}
+{##}
+{#      <label>#}
+{#        <input type="submit" name="Submit" value="Update" />#}
+{#        </label>#}
+{##}
+{#    </td>#}
+{##}
+{#  </tr>#}
+{#</table>#}
+{#  <label></label>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Edit Vaccination</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  td {
+    padding: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  input[type="text"],
+  input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  input[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="/edit_vaccination_post">
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td><input type="text" name="textfield" value="{{ data.name }}" required pattern="[A-Z a-z.]{3,25}"/></td>
+    </tr>
+    <tr>
+      <td>Place:</td>
+      <td><input type="text" name="textfield2" value="{{ data.place }}" pattern="[A-Z a-z.]{3,25}"/></td>
+    </tr>
+    <tr>
+      <td>Date:</td>
+      <td><input type="date" name="textfield3" value="{{ data.date|date:'Y-m-d' }}" min="1990-01-01" max="2019-12-31" required/></td>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td><input type="text" name="textfield4" value="{{ data.desc }}" required/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" name="Submit" value="Update" /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

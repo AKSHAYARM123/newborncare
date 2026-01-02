@@ -1,0 +1,153 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>name</td>#}
+{#      <td>place</td>#}
+{#      <td>pin</td>#}
+{#      <td>post</td>#}
+{#      <td>gender</td>#}
+{#      <td>photo</td>#}
+{#        <td>contact</td>#}
+{#        <td>email</td>#}
+{#    </tr>#}
+{##}
+{#    <tr>#}
+{#      <td>{{ val.name }}&nbsp;</td>#}
+{#      <td>{{ val.place }}</td>#}
+{#      <td>{{ val.pin }}</td>#}
+{#      <td>{{ val.post }}</td>#}
+{#      <td>&nbsp;{{ val.gender}}</td>#}
+{#      <td>&nbsp;{{ val.image }}</td>#}
+{#      <td>{{ val.contact}}</td>#}
+{#      <td>{{ val.email}}</td>#}
+{#    </tr>#}
+{##}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Styled Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    form {
+        width: 80%;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .form-section {
+        margin-bottom: 20px;
+    }
+
+    .label {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    input[type="text"], input[type="email"], input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .photo img {
+        width: 100px;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .contact, .email {
+        width: 100%;
+        text-align: left;
+    }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+    <h1>MY PROFILE</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Place</th>
+                <th>Pin</th>
+                <th>Post</th>
+                <th>Gender</th>
+                <th>Photo</th>
+                <th>Contact</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ val.name }}</td>
+                <td>{{ val.place }}</td>
+                <td>{{ val.pin }}</td>
+                <td>{{ val.post }}</td>
+                <td>{{ val.gender }}</td>
+                <td class="photo">{{ val.image }}</td>
+                <td>{{ val.contact }}</td>
+                <td>{{ val.email }}</td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>
+

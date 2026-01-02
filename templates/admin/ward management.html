@@ -1,0 +1,118 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>panchayath</td>#}
+{#      <td>ward number </td>#}
+{#      <td>&nbsp;</td>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>&nbsp;{{ i.PANCHAYATH.place }}</td>#}
+{#      <td>&nbsp;{{ i.wardnumder }}</td>#}
+{#      <td><p><a href="/editward/{{ i.id }}">edit</a></p>#}
+{#      <p><a href="/deleteward/{{ i.id }}">delete</a></p></td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#    <tr>#}
+{##}
+{#      <td><a href="/addwardmanagement">Add</a></td>#}
+{#      #}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ward Management</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+    padding: 20px;
+  }
+  table {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  a[href^="/editward"] {
+    background-color: #ffc107;
+    color: black;
+  }
+  a[href^="/deleteward"] {
+    background-color: #dc3545;
+    color: white;
+  }
+  a[href="/addwardmanagement"] {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table>
+    <tr>
+      <th>Panchayath</th>
+      <th>Ward Number</th>
+      <th>Actions</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ i.PANCHAYATH.place }}</td>
+      <td>{{ i.wardnumder }}</td>
+      <td>
+        <a href="/editward/{{ i.id }}">Edit</a>
+        <a href="/deleteward/{{ i.id }}">Delete</a>
+      </td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="3" style="text-align: center;"><a href="/addwardmanagement">Add</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html

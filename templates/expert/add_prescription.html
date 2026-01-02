@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Add Schedule</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    form {
+        width: 60%;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        padding: 12px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: left;
+    }
+
+    input[type="date"], input[type="time"] {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #218838;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .form-title {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/add_prescription_post" enctype="multipart/form-data">
+    <h2 class="form-title">Add New Schedule</h2>
+    <table>
+       
+        <tr>
+            <td class="form-group">File</td>
+            <td class="form-group">
+                <input type="file" name="file" required/>
+            </td>
+        </tr>
+       
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="Submit" value="Add Schedule" />
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+
+</title>
+</head>
+<body>
+
+</body>
+</html>

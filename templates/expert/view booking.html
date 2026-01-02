@@ -1,0 +1,161 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>parent</td>#}
+{#      <td>shedule</td>#}
+{#      <td>date</td>#}
+{#      <td>status</td>#}
+{##}
+{#    </tr>#}
+{#      {% for i in val %}#}
+{#    <tr>#}
+{#      <td>&nbsp;{{ i.PARENT.LOGIN.username }}</td>#}
+{#      <td>{{ i.SHEDULE.from_time }}{{ i.SHEDULE.to_time }}</td>#}
+{#      <td>{{ i.date }}</td>#}
+{##}
+{#      <td>#}
+{#          {% if i.status == 'pending' %}#}
+{#          <p><a href="/accept_shedule/{{ i.id }}">accept</a></p>#}
+{#          <p><a href="/reject_shedule/{{ i.id }}">reject</a></p>#}
+{#          {% else %}#}
+{#          {{ i.status }}#}
+{#          {% endif %}#}
+{#      </td>#}
+{##}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Schedule Management</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    form {
+        width: 80%;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    td, th {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .actions {
+        text-align: center;
+    }
+
+    .actions a {
+        margin-right: 10px;
+    }
+
+    .status-pending {
+        color: #ff8c00;
+        font-weight: bold;
+    }
+
+    .status-accepted {
+        color: #28a745;
+        font-weight: bold;
+    }
+
+    .status-rejected {
+        color: #dc3545;
+        font-weight: bold;
+    }
+
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+    <h2 style="text-align: center; color: #333;">Schedule Management</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Parent</th>
+                <th>Schedule</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in val %}
+            <tr>
+                <td>{{ i.PARENT.LOGIN.username }}</td>
+                <td>{{ i.SHEDULE.from_time }} - {{ i.SHEDULE.to_time }}</td>
+                <td>{{ i.date }}</td>
+                <td class="actions">
+                    {% if i.status == 'pending' %}
+                    <span class="status-pending">
+                        <p><a href="/accept_shedule/{{ i.id }}">Accept</a></p>
+                        <p><a href="/reject_shedule/{{ i.id }}">Reject</a></p>
+                    </span>
+                    {% else %}
+                                                <p><a href="/add_prescription/{{ i.id }}">prescription</a></p>
+
+                    <span class="status-{{ i.status }}">
+                        {{ i.status }}
+                    </span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+</body>
+</html>
+

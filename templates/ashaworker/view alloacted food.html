@@ -1,0 +1,118 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body><form action="" method="post">#}
+{#  <table width="200" border="1">#}
+{#    <tr>#}
+{#      <td>food</td>#}
+{#      <td>date</td>#}
+{#      <td>month</td>#}
+{#        <td> </td>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>#}
+{#      <td>&nbsp;{{ i.FOOD.foodname }}</td>#}
+{#      <td>&nbsp;{{ i.date }}</td>#}
+{#      <td>&nbsp;{{ i.day }}</td>#}
+{#      <td>#}
+{#          <p><a href="/edit_food_allocation/{{ i.id }}">edit</a></p>#}
+{#          <p><a href="/delete_foodallocation/{{ i.id }}">delete</a></p>#}
+{#      </td></tr>#}
+{#      {% endfor %}#}
+{#        <tr>#}
+{#        <a href="/add_allocated_food">add</a>#}
+{#    </tr>#}
+{##}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Food Allocation</title>
+<style type="text/css">
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #fff;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+    a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    .add-link {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        background-color: #28a745;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+    .add-link:hover {
+        background-color: #218838;
+    }
+</style>
+</head>
+
+<body>
+<form action="" method="post">
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Date</th>
+        <th>Month</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in data %}
+      <tr>
+        <td>{{ i.FOOD.foodname }}</td>
+        <td>{{ i.date }}</td>
+        <td>{{ i.day }}</td>
+        <td>
+          <a href="/edit_food_allocation/{{ i.id }}">Edit</a> |
+          <a href="/delete_foodallocation/{{ i.id }}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</form>
+<a href="/add_allocated_food" class="add-link">Add New Allocation</a>
+</body>
+</html>
